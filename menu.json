@@ -1,0 +1,22 @@
+[
+    {
+        "id": "about",
+        "name": "о нас"
+    },
+    {
+        "id": "projects",
+        "name": "проекты"
+    },
+    {
+        "id": "gallery",
+        "name": "галерея"
+    },
+    {
+        "id": "friends",
+        "name": "друзья"
+    },
+    {
+        "id": "school",
+        "name": "школа выживания"
+    }
+]

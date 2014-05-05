@@ -1,0 +1,152 @@
+.viewPort > .content {
+    background: url(../img/icons/about.png) no-repeat 0 2.5em;
+}
+
+.viewPort > .content > section.about {
+    background: white url(../img/icons/about.png) no-repeat -1.5em 2.5em;
+}
+
+.viewPort > .content > section.gallery {
+    background: white url(../img/icons/gallery.png) no-repeat -1.5em 2.5em;
+}
+
+article#about-team > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+article#about-team > ul li {
+    display: block;
+}
+
+article#about-team div.avatar-round {
+    width: 12em;
+    height: 12em;
+}
+
+#about-team .float-container-left {
+    width: 30%;
+}
+
+#about-team .float-container-right {
+    border-bottom: silver 2px dotted;
+    width: 70%;
+    min-height: 18em;
+}
+
+#about-team ul > li:last-child .float-container-right {
+}
+
+#about-team .float-container-right p {
+}
+
+#about-team .float-container-right i {
+    color: #555;
+}
+
+#about-team .float-container-right i {
+    display: block;
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#about-team .float-container-right i.name {
+    text-transform: uppercase;
+}
+
+#about-team .float-container-right i.name:after,
+#about-team .float-container-right i.nickName:after {
+    content: '.';
+}
+
+#about-team .float-container-right i.nickName {
+}
+
+#about-team .float-container-right i.nickName:before {
+    content: 'Игровое имя - ';
+}
+
+#about-team .float-container-right i.phone:before {
+    content: 'Тел: ';
+}
+
+#about-team .float-container-right i.skype:before {
+    content: 'Skype: ';
+}
+
+#about-team .float-container-right i.vkontakte:before {
+    content: 'Vkontakte: ';
+}
+
+#about-team .float-container-right i.email:before {
+    content: 'Email: ';
+}
+
+article#friends > ul > li {
+    width: 33%;
+    min-height: 5em;
+    text-align: center;
+}
+
+article#friends > ul > li > i {
+    display: block;
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    min-height: 3em;
+}
+
+article#friends > ul > li div {
+    width: auto;
+}
+
+article#friends > ul > li p {
+    margin: 0;
+}
+
+article#friends > ul > li img {
+    max-width: 20em;
+    max-height: 7em;
+}
+
+.curved-hz-1 {
+    position: relative;
+    width: 40%;
+    padding: .5em;
+    margin: 0 1em 2em;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.curved-hz-1:before,
+.curved-hz-1:after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+}
+
+.curved-hz-1:before {
+    top: 50%;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+
+.curved-hz-1 p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+section.gallery article img {
+    width: 25.6em;
+    border-radius: 1em;
+    margin: .5em;
+}
