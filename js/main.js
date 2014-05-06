@@ -64,6 +64,13 @@ $(function () {
 
     function toggleMenu(menu, submenu) {
         if ($oldSection) $oldSection.hide();
+
+        var fullPath = menu + "-" + submenu;
+        if (!submenu) {
+            fullPath = $section.find(">article:eq(0)").attr("id");
+        }
+
+        $section.css({"background-image": "url(img/icons/" + fullPath + ".png)"})
         $section.show();
         $oldSection = $section;
 
@@ -75,7 +82,7 @@ $(function () {
 
         if (submenu) {
             $section.find(">article").hide();
-            $section.find(">article[id=" + menu + "-" + submenu + "]").show();
+            $section.find(">article[id=" + fullPath + "]").show();
         } else {
             $section.find(">article").hide().eq(0).show();
         }

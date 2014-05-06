@@ -9,6 +9,7 @@ textarea {
 }
 
 html {
+    font-family: arial, verdana, sans-serif;
     font-size: 1em;
     line-height: 1.4;
 }
@@ -80,14 +81,19 @@ div.viewPort {
     background: url(../img/background/logo.png) no-repeat;
     height: 205px;
     width: 515px;
-    padding: 3em;
+    padding: 2.5em 4em;
     margin: 3em 0 6em;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    text-align: center;
-    font-size: .8em;
+    text-align: left;
+    font-size: 14px;
     text-shadow: 2px 2px 3px #555;
+}
+
+.viewPort > header > h1 {
+    font-size: 34px;
+    font-weight: bold;
 }
 
 .viewPort > nav, .viewPort > .content > section, .viewPort > footer {
@@ -126,49 +132,63 @@ div.viewPort {
 
 .viewPort > nav .menu ul > li > a {
     display: table-cell;
-    height: 2.5em;
+    height: 3.125em;
     width: 20em;
     padding: 0 1.5em;
-    background: url(../img/background/btn_blue_inactive.png) repeat-x;
+    background: url(../img/background/btn_blue_inactive.png) repeat-x center;
 }
 
 .viewPort > nav .menu ul > li > a.active {
-    background: url(../img/background/btn_blue_active.png) repeat-x;
+    background: url(../img/background/btn_blue_active.png) repeat-x center;
 }
 
 .viewPort > nav .sub-menu {
-    position: relative;
-    width: 100%;
     border-radius: 1em;
     background: url(../img/background/gradient_black.png) repeat-x;
     height: 4.5em;
+    color: white;
     text-shadow: 1px 1px 2px #999;
 }
 
 .viewPort > nav .sub-menu ul {
-    position: absolute;
     text-align: center;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     width: 100%;
-    color: white;
-    bottom: 0;
+    line-height: 3.8em;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .viewPort > nav .sub-menu ul li {
     display: inline;
-    vertical-align: bottom;
 }
 
 .viewPort > nav .sub-menu ul li:first-child:before,
 .viewPort > nav .sub-menu ul li:after {
-    content: '|';
+    content: '';
+    font-size: 20px;
+    margin: 0 0.9em;
+    text-shadow: none;
+    border-right: 1px solid white;
 }
 
 .viewPort > nav .sub-menu ul a {
-    font-size: 0.8em;
-    margin: 0 1.5em;
+    font-size: 13px;
+}
+
+.viewPort > nav > .sub-menu > ul > li > i {
+    display: none;
+    vertical-align: middle;
+    width: 0;
+    height: 37px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 1em;
 }
 
 .viewPort > .content > section {
@@ -279,14 +299,56 @@ div.avatar-round > img {
    sub-menu
    ========================================================================== */
 
-.viewPort > nav > .sub-menu > ul.about > li > i.about-team {
-    background: url(../img/sub-menu/ico_conseptl.png) no-repeat bottom;
-    width: 50px;
-    height: 26px;
+.viewPort > nav > .sub-menu > ul.about > li > i.about-concept {
     display: inline-block;
-    position: relative;
-    top: 10px;
-    left: 8px;
+    background-image: url(../img/icons/about-concept_s.png);
+    width: 49px;
+}
+
+.viewPort > nav > .sub-menu > ul.about > li > i.about-team {
+    display: inline-block;
+    background-image: url(../img/icons/about-team_s.png);
+    width: 40px;
+}
+
+.viewPort > nav > .sub-menu > ul.about > li > i.about-achievements {
+    display: inline-block;
+    background-image: url(../img/icons/about-achievements_s.png);
+    width: 20px;
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li {
+
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li > i.gallery-challenge {
+    display: inline-block;
+    background-image: url(../img/icons/gallery-challenge_s.png);
+    width: 30px;
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li > i.gallery-wizards {
+    display: inline-block;
+    background-image: url(../img/icons/gallery-wizards_s.png);
+    width: 37px;
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li > i.gallery-pvd {
+    display: inline-block;
+    background-image: url(../img/icons/gallery-pvd_s.png);
+    width: 37px;
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li > i.gallery-games {
+    display: inline-block;
+    background-image: url(../img/icons/gallery-games_s.png);
+    width: 37px;
+}
+
+.viewPort > nav > .sub-menu > ul.gallery > li > i.gallery-trainings {
+    display: inline-block;
+    background-image: url(../img/icons/gallery-trainings_s.png);
+    width: 29px;
 }
 
 /* ==========================================================================

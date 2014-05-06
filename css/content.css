@@ -1,13 +1,12 @@
 .viewPort > .content {
-    background: url(../img/icons/about.png) no-repeat 0 2.5em;
+    background: url(../img/icons/default.png) no-repeat 0 2.5em;
 }
 
-.viewPort > .content > section.about {
-    background: white url(../img/icons/about.png) no-repeat -1.5em 2.5em;
-}
-
-.viewPort > .content > section.gallery {
-    background: white url(../img/icons/gallery.png) no-repeat -1.5em 2.5em;
+.viewPort > .content > section {
+    background-image: url(../img/icons/about-team.png);
+    background-repeat: no-repeat;
+    background-position: -1.5em 2.5em;
+    background-color: white;
 }
 
 article#about-team > ul {
