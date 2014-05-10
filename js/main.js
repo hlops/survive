@@ -5,7 +5,19 @@ $(function () {
     var router;
     var $content, $menu, $subMenu;
     var $oldSection, $section;
-    var processors = {};
+    var processors = [];
+
+    function galleryImageLoaded() {
+        var $img = $(this);
+        $img.removeAttr("width").removeAttr("height").css({ width: "", height: "" });
+        if ($img.height() > 0) {
+            $img.removeClass("undecided");
+            if ($img.width() / $img.height() > 25.6 / 19) {
+                $img.addClass("wide");
+            }
+            $img.parent().prettyPhoto();
+        }
+    }
 
     // init menu
     $.getJSON("menu.json", function (data) {
@@ -78,7 +90,7 @@ $(function () {
         $menu.find(">ul>li>a." + menu).addClass("active");
 
         $subMenu.find(">ul").hide();
-        $subMenu.find(">ul." + menu).show()
+        $subMenu.find(">ul." + menu).show();
 
         if (submenu) {
             $section.find(">article").hide();
@@ -86,33 +98,58 @@ $(function () {
         } else {
             $section.find(">article").hide().eq(0).show();
         }
+
+        $section.find("img.undecided").each(galleryImageLoaded);
     }
 
     function process() {
         $section.find(">article").each(function () {
             var id = $(this).attr("id");
-            if (processors[ id]) {
-                processors[id].call(this);
+            for (var i = 0; i < processors.length; i++) {
+                if (processors[i].matches(id)) {
+                    processors[i].process($(this));
+                }
             }
         })
     }
 
-    processors["about-team"] = function () {
-        $(this).find(">ul>li").each(function () {
-            var $li = $(this);
-            var img = $li.find("img.avatar").detach();
-            $li.contents().wrapAll('<div class="float-container"><div class="float-container-right"><div class="float-container-table"><div class="float-container-cell"></div></div></div></div>');
-            $li.find(".float-container").prepend('<div class="float-container-left"><div class="float-container-table"><div class="float-container-cell"><div class="avatar-round"></div></div></div></div>');
-            $li.find("div.avatar-round").append(img);
-        })
-        $(this).append('<div style="clear: both"></div>');
-    }
+    processors.push({
+        matches: function (name) {
+            return name == "about-team";
+        },
+        process: function ($article) {
+            $article.find(">ul>li").each(function () {
+                var $li = $(this);
+                var img = $li.find("img.avatar").detach();
+                $li.contents().wrapAll('<div class="float-container"><div class="float-container-right"><div class="float-container-table"><div class="float-container-cell"></div></div></div></div>');
+                $li.find(".float-container").prepend('<div class="float-container-left"><div class="float-container-table"><div class="float-container-cell"><div class="avatar-round"></div></div></div></div>');
+                $li.find("div.avatar-round").append(img);
+            })
+            $article.append('<div style="clear: both"></div>');
+        }});
 
-    processors["friends"] = function () {
-        $(this).find(">ul>li").each(function () {
-            var $li = $(this);
-            var img = $li.find("a>img.logo").wrap('<div class="curved-hz-1"><p></p></div>');
-        })
-    }
+    processors.push({
+        matches: function (name) {
+            return name == "friends";
+        },
+        process: function ($article) {
+            $article.find(">ul>li").each(function () {
+                $(this).find("a>img.logo").wrap('<div class="curved-hz-1"><p></p></div>');
+            })
+        }});
+
+    processors.push({
+        matches: function (name) {
+            return name.match(/gallery\-\w+/gi);
+        },
+        process: function ($article) {
+            $article.find(">img").each(function () {
+                var $img = $(this);
+                $img.wrap('<div class="curved-hz-1"><div class="img">' +
+                    '<a href="' + $img.attr('src') + '" rel="prettyPhoto[' + $article.attr('id') + ']" title="' + ($img.attr('alt') || '') + '"></a>' +
+                    '</div></div>');
+                $img.addClass("undecided").on("load", galleryImageLoaded);
+            })
+        }});
 
 });

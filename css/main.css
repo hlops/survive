@@ -12,6 +12,7 @@ html {
     font-family: arial, verdana, sans-serif;
     font-size: 1em;
     line-height: 1.4;
+    overflow-y: scroll;
 }
 
 ::-moz-selection {
@@ -192,12 +193,12 @@ div.viewPort {
 }
 
 .viewPort > .content > section {
-    background: white;
     border-radius: 1em;
     min-height: 20em;
     margin-bottom: 5em;
     color: #333;
     padding: 1.5em 1.5em 1.5em 9em;
+    display: none;
 }
 
 .viewPort > .content > section > article {
