@@ -179,11 +179,11 @@ $(function () {
         process: function ($article) {
             $article.find("i.email").each(function () {
                 var $i = $(this);
-                $i.wrap('<a href="mailto:' + $i.text() + '"></a>');
+                $i.contents().wrap('<a href="mailto:' + $i.text() + '"></a>');
             });
             $article.find("i.vkontakte").each(function () {
                 var $i = $(this);
-                $i.wrap('<a href="' + $i.text() + '" target="vk"></a>');
+                $i.contents().wrap('<a href="' + $i.text() + '" target="vk"></a>');
             });
         }
     })
