@@ -114,7 +114,10 @@ article#friends > ul > li p {
     margin: 0;
     position: relative;
     z-index: 2;
+    background-image: -moz-linear-gradient(#fff, #ccc);
+    background-image: -webkit-gradient(linear, #fff, #ccc);
     background-image: linear-gradient(#fff, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType=0);
     width: 16.5em;
     padding: 1em 0;
 }
@@ -159,6 +162,8 @@ article#friends > ul > li img {
 }
 
 .curved-hz-2 {
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
     border-radius: .5em;
 }
 
