@@ -10,6 +10,10 @@
     background-color: white;
 }
 
+article#about-concept p {
+    line-height: 1.2;
+}
+
 article#about-team > ul {
     list-style: none;
     padding: 0;
@@ -26,19 +30,20 @@ article#about-team div.avatar-round {
 }
 
 #about-team .float-container-left {
-    width: 30%;
+    width: 15em;
 }
 
 #about-team .float-container-right {
     border-bottom: silver 2px dotted;
-    width: 70%;
-    min-height: 18em;
+    width: 37em;
+    min-height: 19em;
 }
 
 #about-team ul > li:last-child .float-container-right {
 }
 
 #about-team .float-container-right p {
+    line-height: 1.2;
 }
 
 #about-team .float-container-right i {
@@ -46,7 +51,6 @@ article#about-team div.avatar-round {
 }
 
 .viewPort > .content > section > article ul i {
-    display: block;
     font-style: normal;
     font-weight: bolder;
 }
@@ -83,26 +87,40 @@ article#about-team div.avatar-round {
     content: 'Email: ';
 }
 
+.viewPort > .content > section > article ul a {
+    text-decoration: none;
+}
+
+.viewPort > .content > section > article ul a i {
+    padding-bottom: 1px;
+}
+
+.viewPort > .content > section > article ul a i:hover {
+    padding-bottom: 0;
+    border-bottom: 1px dotted #999;
+}
+
+
 article#friends > ul > li {
     width: 33%;
     min-height: 5em;
     text-align: center;
+    padding: 1em 0;
 }
 
 article#friends > ul > li > i {
-    display: block;
-    font-style: normal;
     font-weight: bolder;
-    text-align: center;
     min-height: 3em;
-}
-
-article#friends > ul > li div {
-    width: auto;
+    display: block;
 }
 
 article#friends > ul > li p {
     margin: 0;
+    position: relative;
+    z-index: 2;
+    background: white;
+    width: 16.5em;
+    padding: 1em 0;
 }
 
 article#friends > ul > li img {
@@ -110,22 +128,25 @@ article#friends > ul > li img {
     max-height: 7em;
 }
 
-.curved-hz-1 {
+.curved-hz {
     display: inline-block;
     position: relative;
     background: #fff;
+    margin: .5em;
+}
+
+.curved-hz-1 {
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 1em;
-    margin: .5em;
 }
 
 .curved-hz-1:before,
 .curved-hz-1:after {
     content: "";
     position: absolute;
-    z-index: -2;
+    z-index: 1;
 }
 
 .curved-hz-1:before {
@@ -141,6 +162,10 @@ article#friends > ul > li img {
     border-radius: 5em;
 }
 
+.curved-hz-2 {
+    border-radius: .5em;
+}
+
 section.gallery article div.img {
     display: inline-block;
     width: 25.6em;
@@ -150,6 +175,8 @@ section.gallery article div.img {
     border-radius: 1em;
     overflow: hidden;
     vertical-align: bottom;
+    z-index: 2;
+    position: relative;
 }
 
 section.gallery article div img {
@@ -159,4 +186,12 @@ section.gallery article div img {
 section.gallery article div img.wide {
     width: auto;
     min-height: 19em;
+}
+
+#sub-menu-selection {
+    position: absolute;
+    display: none;
+    z-index: 10;
+    height: 3px;
+    margin-top: -3px;
 }

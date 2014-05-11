@@ -67,7 +67,6 @@ body {
     width: 67em;
     margin: 0 auto;
     color: white;
-    line-height: 1.2em;
 }
 
 div.viewPort {
@@ -84,9 +83,9 @@ div.viewPort {
     width: 515px;
     padding: 2.5em 4em;
     margin: 3em 0 6em;
-    box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     text-align: left;
     font-size: 14px;
     text-shadow: 2px 2px 3px #555;
@@ -153,9 +152,9 @@ div.viewPort {
 
 .viewPort > nav .sub-menu ul {
     text-align: center;
-    box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     width: 100%;
     line-height: 3.8em;
     display: inline-block;
@@ -315,7 +314,7 @@ div.avatar-round > img {
 .viewPort > nav > .sub-menu > ul.about > li > i.about-achievements {
     display: inline-block;
     background-image: url(../img/icons/about-achievements_s.png);
-    width: 20px;
+    width: 28px;
 }
 
 .viewPort > nav > .sub-menu > ul.gallery > li {
@@ -350,6 +349,44 @@ div.avatar-round > img {
     display: inline-block;
     background-image: url(../img/icons/gallery-trainings_s.png);
     width: 29px;
+}
+
+
+.viewPort > nav > .sub-menu > ul.projects > li > i.projects-program {
+    display: inline-block;
+    background-image: url(../img/icons/projects-program_s.png);
+    width: 34px;
+}
+
+.viewPort > nav > .sub-menu > ul.projects > li > i.projects-games {
+    display: inline-block;
+    background-image: url(../img/icons/projects-games_s.png);
+    width: 27px;
+}
+
+.viewPort > nav > .sub-menu > ul.projects > li > i.projects-seminar {
+    display: inline-block;
+    background-image: url(../img/icons/projects-seminar_s.png);
+    width: 42px;
+}
+
+
+.viewPort > nav > .sub-menu > ul.survive > li > i.survive-kids {
+    display: inline-block;
+    background-image: url(../img/icons/survive-kids_s.png);
+    width: 34px;
+}
+
+.viewPort > nav > .sub-menu > ul.survive > li > i.survive-kids {
+    display: inline-block;
+    background-image: url(../img/icons/survive-kids_s.png);
+    width: 51px;
+}
+
+.viewPort > nav > .sub-menu > ul.survive > li > i.survive-instructors {
+    display: inline-block;
+    background-image: url(../img/icons/survive-instructors_s.png);
+    width: 16px;
 }
 
 /* ==========================================================================
@@ -495,3 +532,4 @@ div.avatar-round > img {
         page-break-after: avoid;
     }
 }
+

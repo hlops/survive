@@ -3,9 +3,11 @@ $(function () {
     var DEFAULT_MENU = "about";
 
     var router;
-    var $content, $menu, $subMenu;
+    var $content, $menu, $subMenu, $subMenuSelection;
     var $oldSection, $section;
     var processors = [];
+
+    var prettyPhotoSettings = {deeplinking: false}
 
     function galleryImageLoaded() {
         var $img = $(this);
@@ -15,7 +17,7 @@ $(function () {
             if ($img.width() / $img.height() > 25.6 / 19) {
                 $img.addClass("wide");
             }
-            $img.parent().prettyPhoto();
+            $img.parents("div.curved-hz").addClass("curved-hz-1");
         }
     }
 
@@ -28,13 +30,14 @@ $(function () {
             menu.push('<li><a href="#/', item.id, '" class="', item.id, '">', item.name, '</a></li>');
         }
         menu.push('</ul></div>');
-        menu.push('<div class="sub-menu"></div>');
+        menu.push('<div class="sub-menu"></div><img src="img/menu-selection.png" id="sub-menu-selection">');
 
         $("body>.viewPort>nav").append(menu.join(""));
 
         $content = $("body>.viewPort>div.content");
         $menu = $("body>.viewPort>nav>div.menu");
         $subMenu = $("body>.viewPort>nav>div.sub-menu");
+        $subMenuSelection = $("#sub-menu-selection");
 
         router = new (Backbone.Router.extend({routes: {
             "*link": "menu"
@@ -53,7 +56,9 @@ $(function () {
                     var subMenu = ['<ul class="' + link + '">'], $item;
                     $section.find(">article").each(function () {
                         $item = $(this);
-                        subMenu.push('<li><i class=', $item.attr("id"), '></i><a href="#/' + $item.attr("id") + '" class="', $item.attr("id"), '">', $item.attr("title"), '</a></li>');
+                        if ($item.attr("title")) {
+                            subMenu.push('<li><i class=', $item.attr("id"), '></i><a href="#/' + $item.attr("id") + '" class="', $item.attr("id"), '">', $item.attr("title"), '</a></li>');
+                        }
                     });
                     subMenu.push('</ul>');
 
@@ -62,6 +67,7 @@ $(function () {
 
                     // post process html
                     process();
+
                 });
             } else {
                 toggleMenu(link, subMenuLink);
@@ -71,7 +77,6 @@ $(function () {
         });
 
         Backbone.history.start();
-
     });
 
     function toggleMenu(menu, submenu) {
@@ -90,7 +95,18 @@ $(function () {
         $menu.find(">ul>li>a." + menu).addClass("active");
 
         $subMenu.find(">ul").hide();
-        $subMenu.find(">ul." + menu).show();
+        var $activeSubMenu = $subMenu.find(">ul." + menu).show();
+
+        var $li = $activeSubMenu.find("a." + fullPath).parent();
+        if ($li.length) {
+            $("#sub-menu-selection").css({
+                left: $li.position().left - ($li.index() ? 80 : 40),
+                width: $li.width() + ($li.index() ? 120 : 80),
+                display: "inline"
+            });
+        } else {
+            $("#sub-menu-selection").hide();
+        }
 
         if (submenu) {
             $section.find(">article").hide();
@@ -124,6 +140,7 @@ $(function () {
                 $li.contents().wrapAll('<div class="float-container"><div class="float-container-right"><div class="float-container-table"><div class="float-container-cell"></div></div></div></div>');
                 $li.find(".float-container").prepend('<div class="float-container-left"><div class="float-container-table"><div class="float-container-cell"><div class="avatar-round"></div></div></div></div>');
                 $li.find("div.avatar-round").append(img);
+                $li.find("i").wrap("<div></div>");
             })
             $article.append('<div style="clear: both"></div>');
         }});
@@ -134,7 +151,9 @@ $(function () {
         },
         process: function ($article) {
             $article.find(">ul>li").each(function () {
-                $(this).find("a>img.logo").wrap('<div class="curved-hz-1"><p></p></div>');
+                var $img = $(this).find("a>img.logo");
+                $img.parent().attr("target", "friends");
+                $img.wrap('<div class="curved-hz curved-hz-1 curved-hz-2"><p></p></div>');
             })
         }});
 
@@ -145,11 +164,27 @@ $(function () {
         process: function ($article) {
             $article.find(">img").each(function () {
                 var $img = $(this);
-                $img.wrap('<div class="curved-hz-1"><div class="img">' +
+                $img.wrap('<div class="curved-hz"><div class="img">' +
                     '<a href="' + $img.attr('src') + '" rel="prettyPhoto[' + $article.attr('id') + ']" title="' + ($img.attr('alt') || '') + '"></a>' +
                     '</div></div>');
                 $img.addClass("undecided").on("load", galleryImageLoaded);
             })
+            $article.find("a[rel^=prettyPhoto]").prettyPhoto(prettyPhotoSettings);
         }});
 
+    processors.push({
+        matches: function (name) {
+            return true;
+        },
+        process: function ($article) {
+            $article.find("i.email").each(function () {
+                var $i = $(this);
+                $i.wrap('<a href="mailto:' + $i.text() + '"></a>');
+            });
+            $article.find("i.vkontakte").each(function () {
+                var $i = $(this);
+                $i.wrap('<a href="' + $i.text() + '" target="vk"></a>');
+            });
+        }
+    })
 });
