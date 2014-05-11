@@ -18,6 +18,7 @@ article#about-team > ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: -1.5em;
 }
 
 article#about-team > ul li {
@@ -40,10 +41,6 @@ article#about-team div.avatar-round {
 }
 
 #about-team ul > li:last-child .float-container-right {
-}
-
-#about-team .float-container-right p {
-    line-height: 1.2;
 }
 
 #about-team .float-container-right i {
@@ -117,7 +114,7 @@ article#friends > ul > li p {
     margin: 0;
     position: relative;
     z-index: 2;
-    background: white;
+    background-image: linear-gradient(#fff, #ccc);
     width: 16.5em;
     padding: 1em 0;
 }
@@ -153,11 +150,11 @@ article#friends > ul > li img {
     bottom: 0;
     left: 1em;
     right: 1em;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 1.5em rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0 0 1.5em rgba(0, 0, 0, 1);
     box-shadow: 0 0 1.5em rgba(0, 0, 0, 1);
-    -webkit-border-radius: 3em;
-    -moz-border-radius: 3em;
+    -webkit-border-radius: 5em;
+    -moz-border-radius: 5em;
     border-radius: 5em;
 }
 
@@ -214,8 +211,8 @@ div.avatar-round > img {
 }
 
 .float-container {
-    display: table;
     display: -moz-inline-box;
+    display: table;
 }
 
 .float-container-left {
@@ -242,3 +239,16 @@ div.avatar-round > img {
     vertical-align: middle;
 }
 
+article#news li header {
+    padding-bottom: 0;
+}
+
+article#news li {
+    padding: 1em 0;
+    border-top: silver 2px dotted;
+}
+
+article#news li:first-child {
+    padding-top: 0;
+    border-top: 0;
+}

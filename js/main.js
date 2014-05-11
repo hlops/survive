@@ -45,7 +45,9 @@ $(function () {
 
         router.on('route:menu', function (arr) {
             arr = arr || DEFAULT_MENU;
-            arr = arr.split("-");
+            arr = arr.split("/");
+            var anchor = arr[1];
+            arr = arr[0].split("-");
             var link = arr[0], subMenuLink = arr[1];
 
             $section = $content.find(">section." + link);
@@ -63,14 +65,14 @@ $(function () {
                     subMenu.push('</ul>');
 
                     $subMenu.append(subMenu.join(""));
-                    toggleMenu(link, subMenuLink);
 
                     // post process html
                     process();
 
+                    toggleMenu(link, subMenuLink, anchor);
                 });
             } else {
-                toggleMenu(link, subMenuLink);
+                toggleMenu(link, subMenuLink, anchor);
             }
 
             return false;
@@ -79,7 +81,7 @@ $(function () {
         Backbone.history.start();
     });
 
-    function toggleMenu(menu, submenu) {
+    function toggleMenu(menu, submenu, anchor) {
         if ($oldSection) $oldSection.hide();
 
         var fullPath = menu + "-" + submenu;
@@ -116,6 +118,10 @@ $(function () {
         }
 
         $section.find("img.undecided").each(galleryImageLoaded);
+
+        if (anchor) {
+            document.getElementById(encodeURI(anchor)).scrollIntoView(true);
+        }
     }
 
     function process() {
