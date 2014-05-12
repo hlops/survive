@@ -12,12 +12,12 @@ $(function () {
     function galleryImageLoaded() {
         var $img = $(this);
         $img.removeAttr("width").removeAttr("height").css({ width: "", height: "" });
-        if ($img.height() > 0) {
-            $img.removeClass("undecided");
+        if ($img.height() > 0 && $img.get(0).complete) {
             if ($img.width() / $img.height() > 25.6 / 19) {
                 $img.addClass("wide");
             }
             $img.parents("div.curved-hz").addClass("curved-hz-1");
+            $img.removeClass("undecided");
         }
     }
 
