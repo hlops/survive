@@ -257,6 +257,8 @@ div.viewPort {
 .viewPort > footer > ul > li > i, .viewPort > footer > ul > li > address {
     font-size: .72em;
     font-style: normal;
+    padding-top: .5em;
+    line-height: .5;
 }
 
 /* ==========================================================================
