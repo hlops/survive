@@ -102,8 +102,8 @@ $(function () {
         var $li = $activeSubMenu.find("a." + fullPath).parent();
         if ($li.length) {
             $("#sub-menu-selection").css({
-                left: $li.position().left - ($li.index() ? 80 : 40),
-                width: $li.width() + ($li.index() ? 120 : 80),
+                left: $li.position().left - ($li.index() ? 8 : 4),
+                width: $li.width() + ($li.index() ? 12 : 8),
                 display: "inline"
             });
         } else {
@@ -171,7 +171,7 @@ $(function () {
             $article.find(">img").each(function () {
                 var $img = $(this);
                 $img.wrap('<div class="curved-hz"><div class="img">' +
-                    '<a href="' + $img.attr('src') + '" rel="prettyPhoto[' + $article.attr('id') + ']" title="' + ($img.attr('alt') || '') + '"></a>' +
+                    '<a href="' + removeThumbSuffix($img.attr('src')) + '" rel="prettyPhoto[' + $article.attr('id') + ']" title="' + ($img.attr('alt') || '') + '"></a>' +
                     '</div></div>');
                 $img.addClass("undecided").on("load", galleryImageLoaded);
             })
@@ -193,4 +193,8 @@ $(function () {
             });
         }
     })
+
+    function removeThumbSuffix(s) {
+        return s.replace(/_small\.(\w{3,4})/i,".$1");
+    }
 });

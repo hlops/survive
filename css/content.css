@@ -1,9 +1,8 @@
 .viewPort > .content {
-    background: url(../img/icons/default.png) no-repeat 0 2.5em;
+    background: url(../img/icons/icon_slice.png) no-repeat 0 2.5em;
 }
 
 .viewPort > .content > section {
-    background-image: url(../img/icons/about-team.png);
     background-repeat: no-repeat;
     background-position: -1.5em 2.5em;
     position: relative;
@@ -215,7 +214,6 @@ div.avatar-round > img {
 }
 
 .float-container {
-    display: -moz-inline-box;
     display: table;
 }
 
@@ -255,3 +253,44 @@ article#news li:first-child {
     border-top: 0;
 }
 
+article#projects-program {
+    display: table;
+    width: auto;
+    margin-left: -1em;
+}
+
+article#projects-program .column {
+    display: table-cell;
+    width: 50%;
+    padding: 0 1em;
+}
+
+article#projects-program .program {
+    padding-bottom: 2px;
+}
+
+article#projects-program .program h1 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+
+article#projects-program .program h2 {
+    display: inline-block;
+    color: white;
+    background: #565456;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding: .5em 1em;
+}
+
+article#projects-program .program ul {
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+article#projects-program .program i {
+    display: block;
+}
