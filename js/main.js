@@ -8,7 +8,7 @@ $(function () {
     var processors = [];
 
     var prettyPhotoSettings = {deeplinking: false,
-        social_tools: '<div style="position: relative; top: -1.5em;">' + VK.Share.button() + '</div>'}
+        social_tools: '<div>' + VK.Share.button() + '</div>'}
 
     function galleryImageLoaded() {
         var $img = $(this);
