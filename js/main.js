@@ -7,7 +7,8 @@ $(function () {
     var $oldSection, $section;
     var processors = [];
 
-    var prettyPhotoSettings = {deeplinking: false}
+    var prettyPhotoSettings = {deeplinking: false,
+        social_tools: '<div style="position: relative; top: -1.5em;">' + VK.Share.button() + '</div>'}
 
     function galleryImageLoaded() {
         var $img = $(this);
@@ -143,8 +144,8 @@ $(function () {
             $article.find(">ul>li").each(function () {
                 var $li = $(this);
                 var img = $li.find("img.avatar").detach();
-                $li.contents().wrapAll('<div class="float-container"><div class="float-container-right"><div class="float-container-table"><div class="float-container-cell"></div></div></div></div>');
-                $li.find(".float-container").prepend('<div class="float-container-left"><div class="float-container-table"><div class="float-container-cell"><div class="avatar-round"></div></div></div></div>');
+                $li.contents().wrapAll('<div class="float-container"><div class="float-container-right"></div></div>');
+                $li.find(".float-container").prepend('<div class="float-container-left"><div class="avatar-round"></div></div>');
                 $li.find("div.avatar-round").append(img);
                 $li.find("i").wrap("<div></div>");
             })
@@ -195,6 +196,6 @@ $(function () {
     })
 
     function removeThumbSuffix(s) {
-        return s.replace(/_small\.(\w{3,4})/i,".$1");
+        return s.replace(/_small\.(\w{3,4})/i, ".$1");
     }
 });

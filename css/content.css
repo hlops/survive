@@ -34,11 +34,7 @@ article#about-team div.avatar-round {
 
 #about-team .float-container-right {
     border-bottom: silver 2px dotted;
-    width: 37em;
     padding: 1em 0;
-}
-
-#about-team ul > li:last-child .float-container-right {
 }
 
 #about-team .float-container-right i {
@@ -215,28 +211,16 @@ div.avatar-round > img {
 
 .float-container {
     display: table;
-}
-
-.float-container-left {
-    float: left;
+    width: 100%;
     height: 100%;
-    overflow: auto;
+    padding-right: 1.5em;
+    box-sizing: border-box;
 }
 
-.float-container-right {
-    float: left;
-    height: 100%;
-    overflow: auto;
-}
-
-.float-container-table {
-    display: table;
-    height: 100%;
-}
-
-.float-container-cell {
+.float-container-left, .float-container-right {
     display: table-cell;
     vertical-align: middle;
+    overflow: auto;
 }
 
 article#news li header {
